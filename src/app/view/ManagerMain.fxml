@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox layoutX="65.0" layoutY="105.0" prefHeight="191.0" prefWidth="470.0">
+         <children>
+            <Rectangle text="직원 관리" arcHeight="5.0" arcWidth="5.0" fill="#1fff36" height="153.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffd1f" height="153.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff7d1f" height="153.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
