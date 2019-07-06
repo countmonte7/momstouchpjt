@@ -181,12 +181,12 @@ public class CartDAO {
 		
 	}
 	
-	public int emptyCart(String userId) {
-		String sql = "DELETE FROM cart WHERE userId = ?";
+	public int emptyCart(int cartId) {
+		String sql = "DELETE FROM cartitems WHERE cartId = ?";
 		int deleteResult = 0;
 		try {
 			pstmt = DBConnection.db().prepareStatement(sql);
-			pstmt.setString(1, userId);
+			pstmt.setInt(1, cartId);
 			deleteResult = pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();

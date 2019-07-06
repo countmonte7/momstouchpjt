@@ -98,7 +98,8 @@ public class CartPageController implements Initializable{
 		if(fromDialog==1) {
 			cartDAO = new CartDAO();
 			String userId = UserSession.getInstance().getUserId();
-			cartDAO.emptyCart(userId);
+			int cartId = cartDAO.getCartId(userId);
+			cartDAO.emptyCart(cartId);
 			initialize(null, null);
 		}else {
 			return;
@@ -180,6 +181,7 @@ public class CartPageController implements Initializable{
 	public void getPurcahsePage(ActionEvent event) {
 		try {
 			Scene purchaseScene = new Scene(FXMLLoader.load(getClass().getResource("../view/PayPage.fxml")));
+			purchaseScene.getStylesheets().add(getClass().getResource("../../application/application.css").toExternalForm());
 			Stage purchaseWindow = (Stage)((Node)event.getSource()).getScene().getWindow();
 			purchaseWindow.setScene(purchaseScene);
 			purchaseWindow.show();

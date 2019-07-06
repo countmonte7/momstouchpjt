@@ -18,7 +18,7 @@ public class Main extends Application {
 		try {
 			this.stage = primaryStage;
 			root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
-			Scene scene = new Scene(root,600,400);
+			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("맘스터치 주문 앱");

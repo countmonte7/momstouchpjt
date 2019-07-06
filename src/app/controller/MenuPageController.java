@@ -259,6 +259,7 @@ public class MenuPageController implements Initializable{
 		try {
 			Parent cart = FXMLLoader.load(getClass().getResource("../view/Cart.fxml"));
 			Scene cartScene = new Scene(cart);
+			cartScene.getStylesheets().add(getClass().getResource("../../application/application.css").toExternalForm());
 			Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 			window.setScene(cartScene);
 			window.show();

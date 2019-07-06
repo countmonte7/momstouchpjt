@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 
 
-<AnchorPane fx:controller="app.controller.OrderPageController" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="orderSuccessPane" fx:controller="app.controller.OrderPageController" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox layoutX="165.0" layoutY="50.0" prefHeight="301.0" prefWidth="270.0">
          <children>
@@ -28,7 +28,7 @@
             </ImageView>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="showOrderListBtn" mnemonicParsing="false" text="주문 내역 보기" />
+                  <Button fx:id="showOrderListBtn" onAction="#goOrderListPage" mnemonicParsing="false" text="주문 내역 보기" />
                   <Button fx:id="goToMenuBtn" onAction="#goMainPage" mnemonicParsing="false" text="메인으로" >
                      <HBox.margin>
                         <Insets left="20.0" />
