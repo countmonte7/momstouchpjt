@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="payPagePane" prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.PayPageController">
+<AnchorPane styleClass="pane" fx:id="payPagePane" prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.PayPageController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="582.0" prefWidth="811.0">
          <children>

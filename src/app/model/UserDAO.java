@@ -19,24 +19,25 @@ public class UserDAO {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
-			while(rs.next()) {
+			if(rs.next()) {
 				String userPw = rs.getString(2);
 				if(pw!= null && pw.equals(userPw)) {
 					return 1; // 로그인 성공
 				}else if(!pw.equals(userPw)) {
 					return 0; //비밀번호 불일치
 				}
+			}else {
+				return -1;
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		
-		return -1;
+		return -2;
 	}
 	
-	public int signUp(String id, String pw, String name, String email) {
+	public int signUp(String id, String pw, String name, String email, String address) {
 		
-		String query = "INSERT INTO user VALUES(?,?,?,?)";
+		String query = "INSERT INTO user VALUES(?,?,?,?,?)";
 		try {
 			conn = DBConnection.db();
 			pstmt = conn.prepareStatement(query);
@@ -44,6 +45,7 @@ public class UserDAO {
 			pstmt.setString(2, pw);
 			pstmt.setString(3, name);
 			pstmt.setString(4, email);
+			pstmt.setString(5, address);
 			int result = pstmt.executeUpdate();
 			if(result==1) {
 				return 1; //회원가입 성공 시

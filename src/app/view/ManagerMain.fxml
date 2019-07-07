@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.Image?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="managerMainPane" prefHeight="400" prefWidth="700" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.ManagerMainController">
    <children>
-      <HBox layoutX="65.0" layoutY="105.0" prefHeight="191.0" prefWidth="470.0">
+      <VBox alignment="CENTER" prefHeight="600.0" prefWidth="600.0" AnchorPane.leftAnchor="50.0">
          <children>
-            <Rectangle text="직원 관리" arcHeight="5.0" arcWidth="5.0" fill="#1fff36" height="153.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffd1f" height="153.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff7d1f" height="153.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
+            <HBox alignment="CENTER" prefHeight="300" prefWidth="680.0" spacing="50.0">
+               <children>
+                  <ImageView fx:id="employeeManager" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                  	<image>
+                  		<Image url="@../../application/resources/employee.png" />
+                  	</image>
+                  </ImageView>
+                  <ImageView fx:id="orderManager" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="300" prefWidth="500" spacing="50.0">
+               <children>
+                  <ImageView fx:id="menuManager" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="issueManager" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               </children></HBox>
          </children>
-      </HBox>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
    </children>
 </AnchorPane>

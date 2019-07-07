@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="loginPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.MainController">
+<BorderPane fx:id="loginPane" prefHeight="400.0" prefWidth="700.0" styleClass="pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.MainController">
    <center>
-      <VBox alignment="CENTER" prefHeight="350.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="350.0" prefWidth="300.0" stylesheets="@application.css" BorderPane.alignment="CENTER">
          <children>
-            <Text fx:id="mainTitle" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" text="맘스터치 orderQuick" textAlignment="CENTER" wrappingWidth="275.0078125">
+            <Text id="mainTitle" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" text="맘스터치 orderQuick" textAlignment="CENTER" wrappingWidth="275.0078125">
                <font>
                   <Font name="BM DoHyeon" size="49.0" />
                </font>
@@ -30,8 +30,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="loginBtn"  mnemonicParsing="false" onAction="#loginBtnAction" text="로그인" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-                  <Button fx:id="signUpPgBtn"  mnemonicParsing="false" onAction="#signUpPgBtnAction" text="회원가입" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+                  <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#loginBtnAction" text="로그인" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                  <Button fx:id="signUpPgBtn" mnemonicParsing="false" onAction="#signUpPgBtnAction" text="회원가입" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="30.0" />
                      </GridPane.margin>
@@ -61,8 +61,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="메뉴">
             <items>
-                  <MenuItem mnemonicParsing="false" text="관리자 로그인" />
-                  <MenuItem mnemonicParsing="false" text="고객 로그인" />
+                  <MenuItem mnemonicParsing="false" onAction="#getManagerMain" text="관리자 페이지" />
+                  <MenuItem mnemonicParsing="false" text="고객 페이지" />
               <MenuItem mnemonicParsing="false" text="종료하기" />
             </items>
           </Menu>
@@ -71,19 +71,21 @@
    </top>
    <left>
    	  <VBox>
-   	  <ImageView fitWidth="350.0" preserveRatio="true" BorderPane.alignment="CENTER">
-   	  <image>
-   	  	<Image url="@resources/momstouchLogo.png" />
-   	  </image>
-   	  </ImageView>
-      <ImageView fitHeight="300.0" fitWidth="350.0" pickOnBounds="true" BorderPane.alignment="CENTER">
-   		<image>
-   			<Image url="@resources/mainImage.jpg" />
-   		</image>
-         <viewport>
-            <Rectangle2D />
-         </viewport>
-   	</ImageView>
+      <children>
+      	  <ImageView fitWidth="350.0" preserveRatio="true" BorderPane.alignment="CENTER">
+      	  <image>
+      	  	<Image url="@resources/momstouchLogo.png" />
+      	  </image>
+      	  </ImageView>
+         <ImageView fitHeight="300.0" fitWidth="350.0" pickOnBounds="true" BorderPane.alignment="CENTER">
+      		<image>
+      			<Image url="@resources/mainImage.jpg" />
+      		</image>
+            <viewport>
+               <Rectangle2D />
+            </viewport>
+      	</ImageView>
+      </children>
    	</VBox>
    </left>
 </BorderPane>

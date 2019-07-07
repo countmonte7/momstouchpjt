@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 
 
-<AnchorPane fx:id="orderSuccessPane" fx:controller="app.controller.OrderPageController" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane styleClass="pane" fx:id="orderSuccessPane" fx:controller="app.controller.OrderPageController" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox layoutX="165.0" layoutY="50.0" prefHeight="301.0" prefWidth="270.0">
          <children>

@@ -173,9 +173,9 @@ public class MenuPageController implements Initializable{
 	public void addItem(ActionEvent e) {
 		String menuname = "";
 		int quantity = 0;
+		MenuDAO menu = new MenuDAO();
+		CartDAO cart = new CartDAO();
 		try {
-			MenuDAO menu = new MenuDAO();
-			CartDAO cart = new CartDAO();
 			int btnInfo = checkbtnId((Button)e.getSource());
 			switch(btnInfo) {
 			case 1 :
@@ -191,7 +191,6 @@ public class MenuPageController implements Initializable{
 				quantity = Integer.parseInt(qtySpinner3.getEditor().getText());
 				break;
 			}
-			
 			int menuId = menu.getMenuId(menuname);
 			String userId = UserSession.getInstance().getUserId();
 			int cartId = cart.getCartId(userId);
