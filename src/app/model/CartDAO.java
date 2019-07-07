@@ -62,24 +62,26 @@ public class CartDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				qty = rs.getInt(3);
+				return qty;
+			}else {
+				return 0;
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return qty;
+		return -1;
 	}
 	
 	//카트 만들기
 	public boolean createCart(String userId) {
-		String sql = "INSERT INTO cart (userId, cartId, createdDate) VALUES(?,?,?)";
+		String sql = "INSERT INTO cart (userId, createdDate) VALUES(?,?)";
 		date = new java.util.Date();
 		timestamp = new java.sql.Timestamp(date.getTime());
 		try {
 			conn = DBConnection.db();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userId);
-			pstmt.setInt(2, 0);
-			pstmt.setTimestamp(3, timestamp);
+			pstmt.setTimestamp(2, timestamp);
 			int result = pstmt.executeUpdate();
 			if(result==1) {
 				return true;
@@ -141,7 +143,7 @@ public class CartDAO {
 				userCartId = rs.getInt(1);
 				return userCartId;
 			}else {
-				return userCartId;
+				return 0;
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -154,7 +156,7 @@ public class CartDAO {
 				e.printStackTrace();
 			}
 		}
-		return userCartId;
+		return -1;
 	}
 	
 	//카트에 동일 물건 존재 시 합치기

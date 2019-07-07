@@ -81,10 +81,23 @@ public class MenuPageController implements Initializable{
 	
 	String alertType, alertTitle, contentText;
 	
+	String userId;
+	
+	int cartId;
+	
+	CartDAO cart;
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		getMenu();
+		userId = UserSession.getInstance().getUserId();
+		cart = new CartDAO();
+		cartId = cart.getCartId(userId);
+		if(cartId == 0) {
+			cart.createCart(userId);
+			cartId = cart.getCartId(userId);
+		}
 	}
 	
 	
@@ -192,13 +205,10 @@ public class MenuPageController implements Initializable{
 				break;
 			}
 			int menuId = menu.getMenuId(menuname);
-			String userId = UserSession.getInstance().getUserId();
-			int cartId = cart.getCartId(userId);
+			userId = UserSession.getInstance().getUserId();
+			cartId = cart.getCartId(userId);
 			int qtyValidCheck = cart.countItemInCart(cartId, menuId);
-			if(cartId==0) {
-				cart.createCart(userId);
-				cartId = cart.getCartId(userId);
-			}
+			
 			if(quantity > 0) {
 				if(qtyValidCheck == 0) {
 					cart.addItemInCart(cartId, menuId, quantity);
@@ -231,6 +241,7 @@ public class MenuPageController implements Initializable{
 		return btnClickedResult;
 	}
 	
+	//메뉴 이전 페이지
 	public void prevPage() {
 		if(page>1) {
 			this.page -= 1;
@@ -247,6 +258,7 @@ public class MenuPageController implements Initializable{
 		return 3;
 	}
 	
+	//메뉴 더 보기
 	public void nextPage() {
 		this.page += 1;
 		getMenu();

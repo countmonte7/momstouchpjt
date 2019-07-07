@@ -13,9 +13,9 @@
 <?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.SpinnerValueFactory?>
 
-<StackPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.MenuPageController">
+<StackPane styleClass="pane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.MenuPageController">
    <children>
-      <BorderPane styleClass="pane" prefHeight="600.0" prefWidth="700.0">
+      <BorderPane prefHeight="600.0" prefWidth="700.0">
          <left>
             <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>

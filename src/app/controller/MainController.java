@@ -156,6 +156,7 @@ public class MainController implements Initializable{
 					alertType = "confirmation";
 					alertContent = "회원가입에 성공했습니다. " + userId + " 님 환영합니다.";
 					showAlert(alertType, alertTitle, alertContent);
+					UserSession.getInstance().setUserId(userId);
 					getMenuPage(event);
 				}else if(signUpResult==0) {
 					alertTitle = "실패 메시지";

@@ -77,14 +77,15 @@ public class CartPageController implements Initializable{
 	
 	//이전 페이지로 돌아가기
 	public void goPrevPage() {
-		Stage stage;
-		Parent root;
+		Stage window;
+		Scene menuScene;
 		try {
-			stage = (Stage)backPgBtn.getScene().getWindow();
-			root = FXMLLoader.load(getClass().getResource("../view/MenuPage.fxml"));
-			stage.setScene(new Scene(root, 800, 600));
-			stage.setResizable(false);
-			stage.show();
+			window = (Stage)backPgBtn.getScene().getWindow();
+			menuScene = new Scene(FXMLLoader.load(getClass().getResource("../view/MenuPage.fxml")));
+			menuScene.getStylesheets().add(getClass().getResource("../../application/application.css").toExternalForm());
+			window.setScene(menuScene);
+			window.setResizable(false);
+			window.show();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -148,7 +149,6 @@ public class CartPageController implements Initializable{
 			dialogContent = "메뉴가 선택되지 않았습니다.";
 			showAlert(dialogMessage, dialogTitle, dialogContent);
 		}
-		
 	}
 	
 	public int showAlert(String message, String title, String contentText) {
