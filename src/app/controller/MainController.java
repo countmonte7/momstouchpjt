@@ -31,7 +31,7 @@ public class MainController implements Initializable{
 	@FXML 
 	private Button loginBtn;
 	@FXML 
-	private Button signUpPgBtn, btnPrevPage, btnSignUp;
+	private Button signUpPgBtn, btnPrevPage, btnSignUp, btnIdCheck;
 	@FXML
 	private TextField idTf, tfNewId, tfname, tfemail, tfaddress;
 	@FXML
@@ -214,7 +214,6 @@ public class MainController implements Initializable{
 			showAlert(alertType, alertTitle, alertContent);
 			return false;
 		}
-		
 		String nameRegex = "^[a-zA-Z가-힣]{1,20}\\s?[a-zA-Z가-힣]{1,20}$";
 		if(!username.matches(nameRegex)) {
 			alertTitle = "회원가입 오류";
@@ -259,6 +258,24 @@ public class MainController implements Initializable{
 			alert.setHeaderText(null);
 			alert.setContentText(content);
 			alert.showAndWait();
+		}
+	}
+	
+	public void idDupleCheck() {
+		UserDAO user = new UserDAO();
+		String userId = tfNewId.getText();
+		int result = user.userIdDuplCheck(userId);
+		if(result == 1) {
+			alertTitle = "회원가입 오류";
+			alertType = "warning";
+			alertContent = "입력하신 아이디는 이미 사용중입니다.";
+			showAlert(alertType, alertTitle, alertContent);
+			tfNewId.setText("");
+		}else if(result == 0) {
+			alertTitle = "회원가입 알림창";
+			alertType = "confirmation";
+			alertContent = "입력하신 아이디는 사용 가능합니다.";
+			showAlert(alertType, alertTitle, alertContent);
 		}
 	}
 	

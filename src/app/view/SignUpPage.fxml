@@ -60,32 +60,27 @@
                   <Insets left="100.0" />
                </padding>
             </Label>
-         <TextField fx:id="tfNewId" prefHeight="25" prefWidth="180" GridPane.columnIndex="1">
-            <GridPane.margin>
-               <Insets right="100.0" />
-            </GridPane.margin>
-         </TextField>
-         <PasswordField fx:id="pfSetpw" prefHeight="25" prefWidth="180" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <PasswordField fx:id="pfSetpw" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25" prefWidth="180" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <GridPane.margin>
                <Insets right="100.0" />
             </GridPane.margin>
          </PasswordField>
-         <PasswordField fx:id="pfSetpw2" prefHeight="25" prefWidth="180" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <PasswordField fx:id="pfSetpw2" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25" prefWidth="180" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <GridPane.margin>
                <Insets right="100.0" />
             </GridPane.margin>
          </PasswordField>
-          <TextField fx:id="tfname" prefHeight="25" prefWidth="180" GridPane.columnIndex="1" GridPane.rowIndex="3">
+          <TextField fx:id="tfname" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25" prefWidth="180" GridPane.columnIndex="1" GridPane.rowIndex="3">
             <GridPane.margin>
                <Insets right="100.0" />
             </GridPane.margin>
          </TextField>
-         <TextField fx:id="tfemail" prefHeight="25" prefWidth="180" GridPane.columnIndex="1" GridPane.rowIndex="4">
+         <TextField fx:id="tfemail" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25" prefWidth="180" GridPane.columnIndex="1" GridPane.rowIndex="4">
             <GridPane.margin>
                <Insets right="100.0" />
             </GridPane.margin>
          </TextField>
-         <TextField fx:id="tfaddress" prefHeight="25" prefWidth="180" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+         <TextField fx:id="tfaddress" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25" prefWidth="180" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          <Button fx:id="btnSignUp" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#SignUpAction" scaleY="1.5" text="회원가입" GridPane.rowIndex="6">
             <GridPane.margin>
                <Insets left="120.0" />
@@ -96,9 +91,15 @@
                <Insets left="10.0" />
             </GridPane.margin>
          </Button>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1">
+               <children>
+               <TextField fx:id="tfNewId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25" prefWidth="180.0" />
+                  <Button fx:id="btnIdCheck" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#idDupleCheck" prefHeight="25.0" prefWidth="66.0" text="중복확인" />
+               </children>
+            </HBox>
       </children>
          <padding>
-            <Insets left="50.0" />
+            <Insets left="20.0" />
          </padding>
    </GridPane>
    </children>

@@ -11,7 +11,7 @@ public class UserDAO {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-
+	//로그인
 	public int login(String id, String pw) {
 		String query = "SELECT * FROM user WHERE userId=?";
 		try {
@@ -35,6 +35,7 @@ public class UserDAO {
 		return -2;
 	}
 	
+	//회원가입
 	public int signUp(String id, String pw, String name, String email, String address) {
 		
 		String query = "INSERT INTO user VALUES(?,?,?,?,?)";
@@ -95,6 +96,30 @@ public class UserDAO {
 			}
 		}
 		return null;
+	}
+	
+	public int userIdDuplCheck(String userId) {
+		String sql = "SELECT userId FROM user WHERE userId = ?";
+		try {
+			conn = DBConnection.db();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return 1; //아이디 존재할 시
+			}else {
+				return 0; //아이디 존재하지 않을 때
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return -1; //데이터베이스 오류
 	}
 	
 }
