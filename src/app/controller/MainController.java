@@ -3,18 +3,18 @@ package app.controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 import app.model.UserDAO;
 import app.model.UserDTO;
 import app.model.UserSession;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -51,9 +51,10 @@ public class MainController implements Initializable{
 	
 	String alertTitle, alertType, alertContent;
 	
+	int clickIdDupleBtn = -1;
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
 	}
 	
 	//로그인 버튼 액션
@@ -147,32 +148,42 @@ public class MainController implements Initializable{
 			String userEmail = tfemail.getText();
 			String userAddress = tfaddress.getText();
 			
-			Boolean validCheck = isValid(userId, userPw, userPw2, userName, userEmail, userAddress);
-			if(validCheck) {
-				UserDAO dao = new UserDAO();
-				int signUpResult = dao.signUp(userId, userPw, userName, userEmail, userAddress);
-				if(signUpResult==1) {
-					alertTitle = "성공 메시지";
-					alertType = "confirmation";
-					alertContent = "회원가입에 성공했습니다. " + userId + " 님 환영합니다.";
-					showAlert(alertType, alertTitle, alertContent);
-					UserSession.getInstance().setUserId(userId);
-					getMenuPage(event);
-				}else if(signUpResult==0) {
-					alertTitle = "실패 메시지";
-					alertType = "warning";
-					alertContent = "회원가입에 실패했습니다. 다시 시도해주세요.";
-					showAlert(alertType, alertTitle, alertContent);
-				}else if(signUpResult==-1) {
-					alertTitle = "실패 메시지";
-					alertType = "warning";
-					alertContent = "데이터베이스 오류. 관리자에게 문의하세요.";
-					showAlert(alertType, alertTitle, alertContent);
+			System.out.println(clickIdDupleBtn);
+			if(clickIdDupleBtn == -1) {
+				alertTitle = "실패 메시지";
+				alertType = "warning";
+				alertContent = "아이디 중복 확인을 해주세요.";
+				showAlert(alertType, alertTitle, alertContent);
+				return;
+			}else {
+				Boolean validCheck = isValid(userId, userPw, userPw2, userName, userEmail, userAddress);
+				if(validCheck) {
+					UserDAO dao = new UserDAO();
+					int signUpResult = dao.signUp(userId, userPw, userName, userEmail, userAddress);
+					if(signUpResult==1) {
+						alertTitle = "성공 메시지";
+						alertType = "confirmation";
+						alertContent = "회원가입에 성공했습니다. " + userId + " 님 환영합니다.";
+						showAlert(alertType, alertTitle, alertContent);
+						UserSession.getInstance().setUserId(userId);
+						getMenuPage(event);
+					}else if(signUpResult==0) {
+						alertTitle = "실패 메시지";
+						alertType = "warning";
+						alertContent = "회원가입에 실패했습니다. 다시 시도해주세요.";
+						showAlert(alertType, alertTitle, alertContent);
+					}else if(signUpResult==-1) {
+						alertTitle = "실패 메시지";
+						alertType = "warning";
+						alertContent = "데이터베이스 오류. 관리자에게 문의하세요.";
+						showAlert(alertType, alertTitle, alertContent);
+					}
 				}
 			}
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		
 	}
 	
 	//회원가입 유효성 검사 메소드
@@ -261,22 +272,32 @@ public class MainController implements Initializable{
 		}
 	}
 	
-	public void idDupleCheck() {
+	//아이디 중복 체크
+	public void idDupleCheck(ActionEvent event) {
 		UserDAO user = new UserDAO();
 		String userId = tfNewId.getText();
+		if(userId.equals("") || userId == null) {
+			alertTitle = "중복 아이디 체크 오류";
+			alertType = "warning";
+			alertContent = "아이디를 입력해주세요.";
+			clickIdDupleBtn = -1;
+			showAlert(alertType, alertTitle, alertContent);
+		}else {
 		int result = user.userIdDuplCheck(userId);
 		if(result == 1) {
 			alertTitle = "회원가입 오류";
 			alertType = "warning";
 			alertContent = "입력하신 아이디는 이미 사용중입니다.";
 			showAlert(alertType, alertTitle, alertContent);
+			clickIdDupleBtn = -1;
 			tfNewId.setText("");
 		}else if(result == 0) {
 			alertTitle = "회원가입 알림창";
 			alertType = "confirmation";
 			alertContent = "입력하신 아이디는 사용 가능합니다.";
+			clickIdDupleBtn = 1;
 			showAlert(alertType, alertTitle, alertContent);
 		}
+		}
 	}
-	
 }

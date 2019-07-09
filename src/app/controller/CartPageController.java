@@ -180,6 +180,14 @@ public class CartPageController implements Initializable{
 	
 	public void getPurcahsePage(ActionEvent event) {
 		try {
+			String userId = UserSession.getInstance().getUserId();
+			if(getList(userId).size()==0) {
+				dialogMessage = "warning";
+				dialogTitle = "실패 메시지";
+				dialogContent = "장바구니가 비어있습니다.";
+				showAlert(dialogMessage, dialogTitle, dialogContent);
+				return;
+			}
 			Scene purchaseScene = new Scene(FXMLLoader.load(getClass().getResource("../view/PayPage.fxml")));
 			purchaseScene.getStylesheets().add(getClass().getResource("../../application/application.css").toExternalForm());
 			Stage purchaseWindow = (Stage)((Node)event.getSource()).getScene().getWindow();

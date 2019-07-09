@@ -12,18 +12,24 @@
    <children>
       <VBox alignment="CENTER" prefHeight="600.0" prefWidth="600.0" AnchorPane.leftAnchor="50.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="300" prefWidth="680.0" spacing="50.0">
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300" prefWidth="500.0" spacing="70.0">
                <children>
                   <ImageView fx:id="employeeManager" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                   	<image>
                   		<Image url="@../../application/resources/employee.png" />
                   	</image>
                   </ImageView>
-                  <ImageView fx:id="orderManager" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="orderManager" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../application/resources/menu.png" />
+                     </image></ImageView>
                </children></HBox>
-            <HBox alignment="CENTER" prefHeight="300" prefWidth="500" spacing="50.0">
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300" prefWidth="500" spacing="70.0">
                <children>
-                  <ImageView fx:id="menuManager" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="menuManager" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../application/resources/order.png" />
+                     </image></ImageView>
                   <ImageView fx:id="issueManager" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                </children></HBox>
          </children>

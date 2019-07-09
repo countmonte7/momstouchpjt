@@ -32,3 +32,7 @@
 .pane #employeeManager {
 -fx-background-color: #7B68EE;
 }
+
+.pane .text {
+	-fx-text-fill: white;
+}

@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="600" prefWidth="700" styleClass="pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.MainController">
    <children>
-   <Text layoutX="270.0" layoutY="70.0" text="회원가입" textAlignment="CENTER">
+   <Text styleClass="text" layoutX="270.0" layoutY="70.0" text="회원가입" textAlignment="CENTER">
          <font>
             <Font size="43.0" />
          </font>
@@ -94,7 +94,8 @@
             <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1">
                <children>
                <TextField fx:id="tfNewId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25" prefWidth="180.0" />
-                  <Button fx:id="btnIdCheck" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#idDupleCheck" prefHeight="25.0" prefWidth="66.0" text="중복확인" />
+                  <Button fx:id="btnIdCheck" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" 
+                  	onAction="#idDupleCheck" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="중복확인" />
                </children>
             </HBox>
       </children>

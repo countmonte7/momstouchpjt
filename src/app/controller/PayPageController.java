@@ -200,6 +200,7 @@ public void loadOrderSuccessPage() {
 	try {
 		Scene orderSuccessScene = new Scene(FXMLLoader.load(getClass().getResource("../view/OrderSuccessPage.fxml")));
 		Stage window = (Stage)payPagePane.getScene().getWindow();
+		orderSuccessScene.getStylesheets().add(getClass().getResource("../../application/application.css").toExternalForm());
 		window.setScene(orderSuccessScene);
 		window.show();
 	}catch(Exception e) {

@@ -29,6 +29,7 @@ public class OrderPageController implements Initializable{
 		try {
 			Scene mainScene = new Scene(FXMLLoader.load(getClass().getResource("../view/MenuPage.fxml")));
 			Stage window = (Stage)orderSuccessPane.getScene().getWindow();
+			mainScene.getStylesheets().add(getClass().getResource("../../application/application.css").toExternalForm());
 			window.setScene(mainScene);
 			window.show();
 		}catch(Exception e) {

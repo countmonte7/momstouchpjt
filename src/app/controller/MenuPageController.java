@@ -34,9 +34,6 @@ import javafx.stage.Stage;
 public class MenuPageController implements Initializable{
 	
 	@FXML
-	private StackPane menuPane;
-	
-	@FXML
 	private Button btnGetItem1, btnGetItem2, btnGetItem3, 
 									btnDrinkMenu, btnBurgerMenu, btnSideMenu, btnChickenMenu,
 									prevBtn, nextBtn;
